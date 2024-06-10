@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useState } from "react";
 import { client } from "../sanity/lib/client";
 import Link from "next/link";
 import PopularBikesCarousel from "./PopularBikesCarousel";
@@ -26,8 +28,18 @@ const getData = async () => {
   return data;
 };
 
-const PopularBikes = async () => {
-  const bikes = await getData();
+const PopularBikes = () => {
+  const [bikes, setBikes] = useState([]);
+
+  useEffect(() => {
+    const fetchBikes = async () => {
+      const data = await getData();
+      setBikes(data);
+    };
+
+    fetchBikes();
+  }, []);
+
   // console.log(bikes);
   return (
     <section className="py-24">
