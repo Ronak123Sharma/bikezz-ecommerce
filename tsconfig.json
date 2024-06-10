@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "target": "ES6",
+    "module": "commonjs",
+    "checkJs": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": ".",          // Ensure baseUrl is set
+    "paths": {
+      "@/lib/*": ["lib/*"],   // Existing alias
+      "@/components/*": ["components/*"] // Add this line for components alias
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.jsx",  // Include JSX files
+    "components/ui/sheet.jsx"
+  ]
+}
